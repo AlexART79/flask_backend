@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<a href="/add">Add new</a>
+<table>
+    <h2>Add new item</h2>
+    <form method="POST" action="{{ url_for('get_index') }}">
+        {{ form.csrf_token }}
+        {{ form.todo_text.label }} {{ form.todo_text(size=20) }}
+
+        <input type="submit" value="Add Item" />
+    </form>
+    <hr />
+    {% for item in items %}
+        <tr>
+            <td class="todo-checkbox"><input type="checkbox" /></td>
+            <td class="todo-label">{{ item.text }}</td>
+            <td class="todo-delete"><a href="/delete/{{ item.id }}">x</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
