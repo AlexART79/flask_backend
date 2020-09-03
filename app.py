@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify, Response, make_response
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
@@ -87,6 +86,7 @@ def delete_todo(todo_id):
 
     resp = make_response(jsonify({'message': 'Todo item deleted!'}))
     return resp
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
